@@ -16,7 +16,7 @@ public class Controle {
         System.out.printf("%s", pergunta);
         while (!sc.hasNextInt()){
             sc.nextLine();
-            System.out.printf(AMARELO + "ERRO: " + RESET + VERMELHO + "!!DIGITE APENAS DADOS TIPO INTEIRO(INT)!!\n" + RESET);
+            System.out.printf(VERMELHO + "ERRO: " + RESET + AMARELO + "!!DIGITE APENAS DADOS TIPO INTEIRO(INT)!!\n" + RESET);
             System.out.printf("%s", pergunta);
         }
         int x = sc.nextInt();

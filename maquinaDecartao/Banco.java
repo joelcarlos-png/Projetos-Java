@@ -13,7 +13,7 @@ public class Banco {
     }
 
     public double getSaldoVinculado(){return saldoVinculado;}
-    public ArrayList getContas(){return contas;}
+    public ArrayList<Conta> getContas(){return contas;}
 
     public void setNovaConta(Conta conta){
         contas.add(conta);

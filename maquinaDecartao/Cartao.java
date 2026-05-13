@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class Cartao {
     Scanner sc = new Scanner(System.in);
-    public static String[] cores = {"AZUL","VERMELHO","AMARELO","VERDE","ROSA"};
     private String cor;
     private long codigo;
     private long senhaHash;
@@ -107,28 +106,28 @@ public class Cartao {
         return false;
     }
 
-    protected Cartao(String senha){
+    protected Cartao(String senha, Conta conta){
         criadorSenhaHash(senha);
         criadorDeCodigo();
         System.out.printf("==========Cores==========");
-        for(int i = 0; i < cores.length; i ++){
-            System.out.printf("%d. %s\n", i + 1, cores[i]);
+        for(int i = 0; i < conta.cores.length; i ++){
+            System.out.printf("%d. %s\n", i + 1, conta.cores[i]);
         }
         System.out.printf("=========================\nDigite a cor para o cartao: ");
         int escolha = sc.nextInt();
 
-        this.cor = cores[escolha -1];
+        this.cor = conta.cores[escolha -1];
 
-        String arrayAux[] = new String[cores.length - 1];
+        String arrayAux[] = new String[conta.cores.length - 1];
 
         int j = 0;
-        for(int i = 0; i < cores.length; i++){
+        for(int i = 0; i < conta.cores.length; i++){
             if(i != escolha){
-                arrayAux[j] = cores[i];
+                arrayAux[j] = conta.cores[i];
                 j++;
             }
         }
-        cores = arrayAux;
+        conta.cores = arrayAux;
     }
 
     public long getCodigo(){

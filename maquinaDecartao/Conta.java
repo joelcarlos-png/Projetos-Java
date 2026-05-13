@@ -12,6 +12,7 @@ public class Conta {
     private long senhaHash;
     private static ArrayList<Cartao> cartoes = new ArrayList<>();
     protected static ArrayList<historicoConta> historico = new ArrayList<>();
+    public static String[] cores = {"AZUL","VERMELHO","AMARELO","VERDE","ROSA"};
 
     protected void exibirCartoes(){
         for(int i = 0; i < cartoes.size(); i++){
@@ -19,11 +20,11 @@ public class Conta {
         }
     }
 
-    private void criarNovoCartao(String senha){
+    protected void criarNovoCartao(String senha, Conta conta){
         if(cartoes.size() >= 5){
             System.out.printf("!!Voce ja tem 5 cartoes\n!!");
         }else{
-            Cartao cart = new Cartao(senha);
+            Cartao cart = new Cartao(senha, conta);
             cartoes.add(cart);
         }
     }
@@ -62,12 +63,13 @@ public class Conta {
         this.titular = nomeProposto;
         this.saldo = 0;
         criadorSenhaHash(senha);
-        System.out.printf("!!Conta criada!! = | Titular: %s | Saldo: %d | Cartoes: %d |\n", titular, saldo, cartoes.size());
+        System.out.printf("!!Conta criada!! = | Titular: %s | Saldo: %.2f | Cartoes: %d |\n", titular, saldo, cartoes.size());
     }
 
     public double getSaldo(){
         return saldo;
     }
+    public int getNumCartoes(){return cartoes.size();}
 
     public boolean setSaldo(double valor, int operacao){
         if(operacao == 1){
@@ -87,6 +89,7 @@ public class Conta {
         }
     }
 
+    public ArrayList<Cartao> getCartoes(){return cartoes;}
     public String getTitular(){
         return titular;
     }
