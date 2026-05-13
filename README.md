@@ -1,3 +1,5 @@
+Versão em português aqui: [LINK](./README.md)
+
 # Java Projects
 
 A collection of small Java projects developed for learning and practice.
